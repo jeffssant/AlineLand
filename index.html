@@ -43,38 +43,41 @@
 <body>
 
 
-	<div class="container">
-		<div class="col-12 text-center">
-			<a class="blog-header-logo text-dark" href="#"><img src="assets/img/logo.png" alt=""></a>
-		</div>
-		<header>
-
-
-			<ul class="nav col-12 col-md-auto mb-2 justify-content-center">
-				<li><a href="#" class="nav-link  link-secondary">Home</a></li>
-				<li><a href="#" class="nav-link">pacotes</a></li>
-				<li><a href="#" class="nav-link">depoimentos</a></li>
-				<li><a href="#" class="nav-link">sobre mim</a></li>
-				<li><a href="#" class="nav-link">orçamentos</a></li>
-				<li><a href="#" class="nav-link">galeria</a></li>
+	<div class="container-fluid">
+		
+		
+		<header class="row">
+			<div class="col-12 text-center">
+				<a class="blog-header-logo text-dark align-self-end px-5" href="#">
+					<img src="assets/img/logo.png" alt="" class="img-fluid my-3">
+				</a>
+			</div>
+			<ul class="nav col-md-12 mb-2 justify-content-center ">
+				<li class="align-text-bottom d-flex"><a href="#" class="nav-link  link-secondary align-self-end">Home</a></li>
+				<li class="d-flex"><a href="#" class="nav-link align-self-end">pacotes</a></li>
+				<li class="d-flex"><a href="#" class="nav-link align-self-end">depoimentos</a></li>
+				<li class="d-flex"><a href="#" class="nav-link align-self-end">sobre mim</a></li>
+				<li class="d-flex"><a href="#" class="nav-link align-self-end">orçamentos</a></li>
+				<li class="d-flex"><a href="#" class="nav-link align-self-end">galeria</a></li>
 			</ul>
 
 
 		</header>
+	
 	</div>
 	<main>
 
-		<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-indicators">
+		<div id="myCarouselB" class="carousel slide" data-bs-ride="carousel">
+			<!-- <div class="carousel-indicators">
 				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
 				<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			</div>
+			</div> -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img src="assets/img/banner.jpg" alt="">
 				</div>
-				<div class="carousel-item">
+				<!-- <div class="carousel-item">
 					<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
 						<rect width="100%" height="100%" fill="#777" /></svg>
 
@@ -97,22 +100,22 @@
 							<p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+			<!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
-			</button>
+			</button> -->
 		</div>
 
 		<!-- Call To Action -->
 
 		<div class="container my-5 text-center callTo">
-			<p>
+			<p class="lead">
 				Depois de muitos anos dedicados, e muito empenho, enfim chegou a hora da sua formatura.
 				Sem dúvidas esse é um momento muito especial, e merece ser lembrado!
 			</p>
@@ -216,30 +219,52 @@
 		</div>
 		<!-- Open depoimentos -->
 		<h2 class="text-center dancing-font">O que os formandos dizem:</h2>
-		<div class="container-fluid marketing color my-5 py-5">
+		<div class="container-fluid marketing color my-5 ">
 
-			<div class="container">
-				<div class="row featurette">
-					<div class="col-md-7 order-md-2">
-
-						<p class="lead pt-5">Meu Deus ficaram muito perfeitaaaaasss. <br>
-							Tu é muito competente viu, meus parabéns! <br>
-							Já troquei a foto de perfil 3x porque não sei qual está mais perfeita! Cara, depois dessas fotos, vendo elas eu sinto que posso dominar o mundo ahahaha. Melhor coisa que fizemos foi esse ensaio, de verdade!
-							Ameiiiii Aline
-						</p>
-						<p class="mt-4">MARIA RANUIZIA, FISIOTERAPIA</p>
+			<section class="testimonial-section d-flex align-items-center">
+				<div class="container-fluid">
+				  <div class="row align-items-center">
+					<div class="col-md-7 testi-img p-0">
+					  <div class="img-box">
+						<div class="img-box-inner">
+						  <img src="assets/img/depoimento.jpg" alt="testi img" class="img-fluid">
+						</div>
+					  </div>
 					</div>
-					<div class="col-md-5 order-md-1">
-						<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-							<title>Placeholder</title>
-							<rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">Placeholder</text>
-						</svg>
+					<div class="col-md-5">
+					  <div id="myCarousel" class="carousel slide" data-bs-interval="5000" data-bs-ride="carousel">
+						<div class="carousel-inner">
+						  <div class="carousel-item testi-item active" data-color="#fb9c9a" data-img="assets/img/depoimento.jpg">
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
+							<h3>john doe 1 - <span>web developer</span></h3>
+						  </div>
+						  <div class="carousel-item testi-item" data-color="#fbd39a" data-img="assets/img/depoimento2.jpg">
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
+							<h3>john doe 2 - <span>web developer</span></h3>
+						  </div>
+						  <div class="carousel-item testi-item" data-color="#9ab0fb" data-img="assets/img/3.png">
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
+							<h3>john doe 3 - <span>web developer</span></h3>
+						  </div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+						  <img src="assets/img/left-arrow.png" alt="prev">
+						  <span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+						  <img src="assets/img/right-arrow.png" alt="prev">
+						  <span class="visually-hidden">Next</span>
+						</button>
+					  </div>
 					</div>
+				  </div>
 				</div>
-			</div>
+			  </section>
 		</div>
+		
 		<!-- Close Depoimentos -->
 		<!-- Open Bio-->
+		
 		<div class="container">
 			<div class="row featurette">
 
@@ -365,9 +390,54 @@
 	</main>
 
 
-	<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+	
 
 
 </body>
 
 </html>
+
+
+  
+  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+	const myCarousel = document.getElementById('myCarousel')
+	myCarousel.addEventListener('slid.bs.carousel', function () {
+	  const activeItem = this.querySelector(".active");
+	  document.querySelector(".testi-img img").src = activeItem.getAttribute("data-img");
+	  fadeIn(document.querySelector(".testi-img img"),1);
+	  
+	})
+	function fadeIn(element,time){
+        	processa(element,time,0,1);
+	}
+
+	function processa(element,time,initial,end){
+        	if(initial == 0){
+                 	increment = 2;
+                 	
+        	}else {
+                 	increment = -2;
+        	}
+
+
+
+        	opc = initial;
+
+
+
+        	intervalo = setInterval(function(){
+                 	if((opc == end)){
+                              if(end == 0){
+                                             	element.style.display = "none";
+                              }
+                              clearInterval(intervalo);
+                 	}else {
+                              opc += increment;
+                              element.style.opacity = opc/100;
+                              element.style.filter = "alpha(opacity="+opc+")";
+                 	}
+        	},time * 10);
+            	}
+
+  </script>
