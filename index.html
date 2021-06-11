@@ -219,47 +219,56 @@
 		</div>
 		<!-- Open depoimentos -->
 		<h2 class="text-center dancing-font">O que os formandos dizem:</h2>
-		<div class="container-fluid marketing color my-5 ">
-
-			<section class="testimonial-section d-flex align-items-center">
-				<div class="container-fluid">
-				  <div class="row align-items-center">
-					<div class="col-md-7 testi-img p-0">
-					  <div class="img-box">
-						<div class="img-box-inner">
-						  <img src="assets/img/depoimento.jpg" alt="testi img" class="img-fluid">
+		<div class="container-fluid marketing color my-5 px-0">
+			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-sm-5 ps-0">
+								<img src="./assets/img/depoimento.jpg" alt="" class="img-fluid w-100">				
+							</div>
+							<div class="col-sm-7 px-5 pt-5">
+		
+								<p class="lead pt-5 px-5">Meu Deus ficaram muito perfeitaaaaasss. <br>
+									Tu é muito competente viu, meus parabéns! <br>
+									Já troquei a foto de perfil 3x porque não sei qual está mais perfeita! Cara, depois dessas fotos, vendo elas eu sinto que posso dominar o mundo ahahaha. Melhor coisa que fizemos foi esse ensaio, de verdade!
+									Ameiiiii Aline
+								</p>
+								<hr class="w-25 ms-5">
+								<p class="mt-4 px-5">MARIA RANUIZIA, FISIOTERAPIA</p>
+							</div>
 						</div>
-					  </div>
 					</div>
-					<div class="col-md-5">
-					  <div id="myCarousel" class="carousel slide" data-bs-interval="5000" data-bs-ride="carousel">
-						<div class="carousel-inner">
-						  <div class="carousel-item testi-item active" data-color="#fb9c9a" data-img="assets/img/depoimento.jpg">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
-							<h3>john doe 1 - <span>web developer</span></h3>
-						  </div>
-						  <div class="carousel-item testi-item" data-color="#fbd39a" data-img="assets/img/depoimento2.jpg">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
-							<h3>john doe 2 - <span>web developer</span></h3>
-						  </div>
-						  <div class="carousel-item testi-item" data-color="#9ab0fb" data-img="assets/img/3.png">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis ratione, harum doloremque aspernatur aliquid quaerat dolores voluptates recusandae qui repellat illum, amet ipsa debitis fugiat commodi nemo suscipit ad!</p>
-							<h3>john doe 3 - <span>web developer</span></h3>
-						  </div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-sm-5 ps-0">
+								<img src="./assets/img/depoimento.jpg" alt="" class="img-fluid w-100">				
+							</div>
+							<div class="col-sm-7 px-5 pt-5">
+		
+								<p class="lead pt-5 px-5">Meu Deus ficaram muito perfeitaaaaasss. <br>
+									Tu é muito competente viu, meus parabéns! <br>
+									Já troquei a foto de perfil 3x porque não sei qual está mais perfeita! Cara, depois dessas fotos, vendo elas eu sinto que posso dominar o mundo ahahaha. Melhor coisa que fizemos foi esse ensaio, de verdade!
+									Ameiiiii Aline
+								</p>
+								<hr class="w-25 ms-5">
+								<p class="mt-4 px-5">MARIA RANUIZIA, FISIOTERAPIA</p>
+							</div>
 						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-						  <img src="assets/img/left-arrow.png" alt="prev">
-						  <span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-						  <img src="assets/img/right-arrow.png" alt="prev">
-						  <span class="visually-hidden">Next</span>
-						</button>
-					  </div>
 					</div>
-				  </div>
 				</div>
-			  </section>
+				<div class="nav-ts">
+					<button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+			
 		</div>
 		
 		<!-- Close Depoimentos -->
@@ -389,7 +398,9 @@
 		</footer>
 	</main>
 
+	
 
+	<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 	
 
 
@@ -399,45 +410,5 @@
 
 
   
-  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-	const myCarousel = document.getElementById('myCarousel')
-	myCarousel.addEventListener('slid.bs.carousel', function () {
-	  const activeItem = this.querySelector(".active");
-	  document.querySelector(".testi-img img").src = activeItem.getAttribute("data-img");
-	  fadeIn(document.querySelector(".testi-img img"),1);
-	  
-	})
-	function fadeIn(element,time){
-        	processa(element,time,0,1);
-	}
-
-	function processa(element,time,initial,end){
-        	if(initial == 0){
-                 	increment = 2;
-                 	
-        	}else {
-                 	increment = -2;
-        	}
-
-
-
-        	opc = initial;
-
-
-
-        	intervalo = setInterval(function(){
-                 	if((opc == end)){
-                              if(end == 0){
-                                             	element.style.display = "none";
-                              }
-                              clearInterval(intervalo);
-                 	}else {
-                              opc += increment;
-                              element.style.opacity = opc/100;
-                              element.style.filter = "alpha(opacity="+opc+")";
-                 	}
-        	},time * 10);
-            	}
-
-  </script>
+  
+  
