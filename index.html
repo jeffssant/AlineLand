@@ -60,11 +60,11 @@
 			<div class="collapse navbar-collapse d-lg-block " id="navbarTogglerDemo01">
 				<ul class="nav col-md-12 mb-2 justify-content-center ">
 					<li class="align-text-bottom d-flex "><a href="#" class="nav-link  link-secondary align-self-end">Home</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">pacotes</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">depoimentos</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">sobre mim</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">orçamentos</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">galeria</a></li>
+					<li class="d-flex"><a href="#" class="nav-link align-self-end">Pacotes</a></li>
+					<li class="d-flex"><a href="#" class="nav-link align-self-end">Depoimentos</a></li>
+					<li class="d-flex"><a href="#" class="nav-link align-self-end">Sobre mim</a></li>
+					<li class="d-flex"><a href="#" class="nav-link align-self-end">Contato</a></li>
+					<li class="d-flex"><a href="#" class="nav-link align-self-end">Galeria</a></li>
 				</ul>
 			</div>
 		</header>
@@ -274,7 +274,7 @@
 
 
 		<!-- Contact -->
-		<div class="contact my-5 py-5">
+		<div class="contact mt-5 py-5">
 			<h2 class="text-center">Faça seu orçamento</h2>
 			<p class="text-center">Para dúvidas, sugestões ou mais informações me envie uma mensagem!</p>
 			<div class="container">
@@ -284,7 +284,7 @@
 					<div class="col-lg-12 col-lg-offset-2">
 
 
-						<form id="contact-form" method="post" action="" role="form">
+						<form id="contact-form" method="post" action="" role="form" class="needs-validation">
 
 							<div class="messages"></div>
 
@@ -293,61 +293,66 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-
-											<input id="form_name" type="text" name="name" class="form-control" placeholder="Nome Completo" required="required" data-error="Firstname is required.">
-											<div class="help-block with-errors"></div>
+											<input id="form_name" type="text" name="name" class="form-control" placeholder="Nome Completo"  required>
+											<div class="invalid-feedback">
+												Preencha esse campo
+											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="form_lastname" type="text" name="surname" class="form-control" placeholder="WhatsApp" required="required" data-error="Lastname is required.">
-											<div class="help-block with-errors"></div>
+											<input id="form_wpp" type="text" name="wpp" class="form-control" placeholder="WhatsApp"  required>
+											<div class="invalid-feedback">
+												Preencha esse campo
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="form_email" type="email" name="email" class="form-control" placeholder="E-mail" required="required" data-error="Valid email is required.">
-											<div class="help-block with-errors"></div>
+											<input id="form_email" type="email" name="email" class="form-control" placeholder="E-mail"  required>
+											<div class="invalid-feedback">
+												Preencha esse campo
+											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Já tem um data?">
-											<div class="help-block with-errors"></div>
+											<input id="data" type="tel" name="phone" class="form-control" placeholder="Já tem um data?">
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-4">
 										<div class="form-group">
-											<input id="estado" type="email" name="estado" class="form-control" placeholder="Estado / Cidade" required="required" data-error="Valid email is required.">
-											<div class="help-block with-errors"></div>
+											<input id="estado" type="text" name="estado" class="form-control" placeholder="Estado / Cidade"  required>
+											<div class="invalid-feedback">
+												Preencha esse campo
+											</div>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
 											<input id="Instituicao" type="tel" name="instituicao" class="form-control" placeholder="Instituição de ensino">
-											<div class="help-block with-errors"></div>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<select class="form-select" aria-label="Default select example">
+											<select class="form-select" aria-label="Assunto" name="assunto">
 												<option selected>Assunto</option>
-												<option value="1">Pacote Recordação</option>
-												<option value="2">Pacote Memorial</option>
-												<option value="3">Pacote Mimo</option>
-											  </select>
-											<div class="help-block with-errors"></div>
+												<option value="Pacote Recordação">Pacote Recordação</option>
+												<option value="Pacote Memorial">Pacote Memorial</option>
+												<option value="Pacote Mimo">Pacote Mimo</option>
+												<option value="Outro">Outro</option>
+											</select>											
 										</div>
-									</div>
+									</div>		
 								</div>
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<textarea id="form_message" name="message" class="form-control" placeholder="Digite uma mensagem" rows="4" required data-error="Please,leave us a message."></textarea>
+											<textarea id="form_message" name="message" class="form-control" placeholder="Digite uma mensagem" rows="4"  data-error="Por favor, deixe uma mensagem"></textarea>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
@@ -366,16 +371,91 @@
 
 			</div>
 		</div>
+		<section class="gallery min-vh-100">
+			<div class="container-lg">
+			   <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+				  <div class="col">
+					 <img src="./assets/img/1.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/2.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/3.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/4.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/5.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/6.jpg" class="gallery-item" alt="gallery">
+				  </div>
+			   </div>
+			</div>
+		 </section>
+	   
+	   <!-- Modal -->
+	   <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		 <div class="modal-dialog modal-dialog-centered modal-lg">
+		   <div class="modal-content">
+			 <div class="modal-header">
+			   <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+			   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			 </div>
+			 <div class="modal-body">
+				<img src="img/1.jpg" class="modal-img" alt="modal img">
+			 </div>
+		   </div>
+		 </div>
+	   </div>
+	   <form method="post">
+		<input type="button" value="Send Email" 
+			onclick="sendEmail()" />
+	  </form>
 
 
 		<!-- FOOTER -->
-		<footer class="container footer">
+		<footer class="container footer mt-4">
 
 			<h3>Fotos lindas de momentos especiais.</h2>
 				<p>&copy; 2021 Todos os direitos reservados <br> São Paulo / SP</p>
 		</footer>
 	</main>
 	<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<script>
+		document.addEventListener("click",function (e){
+		if(e.target.classList.contains("gallery-item")){
+			const src = e.target.getAttribute("src");
+			document.querySelector(".modal-img").src = src;
+			const myModal = new bootstrap.Modal(document.getElementById('gallery-modal'));
+			myModal.show();
+		}
+		})
+
+	
+	</script>
+
+<script>
+	(function () {
+	const forms = document.querySelectorAll('.needs-validation')
+	Array.from(forms)
+	  .forEach(function (form) {
+		form.addEventListener('submit', function (event) {
+		console.log(form.checkValidity());
+		if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()			
+		}
+		event.preventDefault()
+		
+		  form.classList.add('was-validated')
+		}, false)
+	  })
+	})()
+	</script>
 </body>
 
 </html>

@@ -2,8 +2,7 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-body { 
-  padding-bottom: 3rem;
+body {   
   color: #5a5a5a;  
 }
 
@@ -199,4 +198,20 @@ header .nav-link{
 
 .form-select{
   color: #777;
+}
+
+
+.gallery{
+	background-color: #f1f4e7;
+	padding: 80px 0;
+}
+.gallery img{
+	background-color: #ffffff;
+	padding: 15px;
+	width: 100%;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+#gallery-modal .modal-img{
+	width: 100%;
 }
