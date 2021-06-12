@@ -30,7 +30,7 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 
@@ -161,6 +161,14 @@ header .nav-link{
   .featurette-heading {
     margin-top: 7rem;
   }
+  
+}
+
+@media(max-width: 992px){
+  ul.nav li, ul.nav li a{
+    width: 100%;
+    text-align: center;
+  }
 }
 
 
@@ -186,6 +194,9 @@ header .nav-link{
   width: 100px;
   position: absolute;
   right: 100px;
-  bottom: 100px;
+  bottom: 20%;
 }
 
+.form-select{
+  color: #777;
+}
