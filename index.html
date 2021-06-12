@@ -69,6 +69,7 @@
 			</div>
 		</header>
 	</div>
+	
 	<main>
 
 		<div id="myCarouselB">
@@ -301,10 +302,12 @@
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="form_wpp" type="text" name="wpp" class="form-control" placeholder="WhatsApp"  required>
-											<div class="invalid-feedback">
-												Preencha esse campo
+											<input id="form_wpp" onblur="mascaraDeTelefone(this)" onfocus="tiraHifen(this)"  type="text" name="wpp" class="form-control" placeholder="WhatsApp"  required>
+											<div class="invalid-feedback" id="in-tel">
+												Preencha seu telefone com DDD
 											</div>
+
+										
 										</div>
 									</div>
 								</div>
@@ -319,7 +322,7 @@
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input id="data" type="tel" name="phone" class="form-control" placeholder="Já tem um data?">
+											<input id="data" type="tel" name="dataE" class="form-control" placeholder="Já tem um data?">
 										</div>
 									</div>
 								</div>
@@ -334,12 +337,12 @@
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<input id="Instituicao" type="tel" name="instituicao" class="form-control" placeholder="Instituição de ensino">
+											<input id="instituicao" type="tel" name="instituicao" class="form-control" placeholder="Instituição de ensino">
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
-											<select class="form-select" aria-label="Assunto" name="assunto">
+											<select class="form-select" aria-label="Assunto" name="assunto" id="assunto">
 												<option selected>Assunto</option>
 												<option value="Pacote Recordação">Pacote Recordação</option>
 												<option value="Pacote Memorial">Pacote Memorial</option>
@@ -352,12 +355,12 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<textarea id="form_message" name="message" class="form-control" placeholder="Digite uma mensagem" rows="4"  data-error="Por favor, deixe uma mensagem"></textarea>
+											<textarea id="form_message" name="message" class="form-control" placeholder="Digite uma mensagem" rows="4"  data-error="Por favor, deixe uma mensagem" required></textarea>
 											<div class="help-block with-errors"></div>
 										</div>
 									</div>
 									<div class="col-md-12 text-center mt-4">
-										<input type="submit" class="btn btn-light btn-send" value="Enviar">
+										<input type="submit" class="btn btn-light btn-send" value="Enviar" id="btn-env">
 									</div>
 								</div>
 
@@ -410,12 +413,8 @@
 		   </div>
 		 </div>
 	   </div>
-	   <form method="post">
-		<input type="button" value="Send Email" 
-			onclick="sendEmail()" />
-	  </form>
-
-
+	   
+	   
 		<!-- FOOTER -->
 		<footer class="container footer mt-4">
 
@@ -424,7 +423,7 @@
 		</footer>
 	</main>
 	<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-	
+
 	<script>
 		document.addEventListener("click",function (e){
 		if(e.target.classList.contains("gallery-item")){
@@ -444,18 +443,111 @@
 	Array.from(forms)
 	  .forEach(function (form) {
 		form.addEventListener('submit', function (event) {
-		console.log(form.checkValidity());
-		if (!form.checkValidity()) {
-			event.preventDefault()
-			event.stopPropagation()			
-		}
-		event.preventDefault()
+			
+			document.getElementById("btn-env").disabled = true;
+
+			var nome = document.getElementById("form_name").value;
+			var telefone = document.getElementById("form_wpp").value;
+			var email = document.getElementById("form_email").value;
+			var data = document.getElementById("data").value;
+			var estado = document.getElementById("estado").value;
+			var instituicao = document.getElementById("instituicao").value;
+			var assunto = document.getElementById("assunto").value;
+			var mensagem = document.getElementById("form_message").value;
+
+			
+			
+			
+			event.preventDefault();
 		
-		  form.classList.add('was-validated')
+			if (!form.checkValidity()) {
+				event.preventDefault()
+				event.stopPropagation()			
+			}
+
+			form.classList.add('was-validated');
+			
+
+			callPHP('nome='+ nome +
+					'&telefone=' + telefone +
+					'&email=' + email +
+					'&data=' + data +
+					'&estado=' + estado +
+					'&instituicao=' + instituicao +
+					'&assunto=' + assunto +
+					'&mensagem=' + mensagem)	
+
+			documento.getElementById("btn-env") = false;
+
 		}, false)
 	  })
 	})()
 	</script>
+
+<script>
+	
+	function callPHP(params) {
+		var theUrl = 'get_data.php';
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function () {
+			if(httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200 && httpRequest.responseText == "Mensagem enviada com sucesso!") {
+            	alert(httpRequest.responseText);
+				document.getElementById("contact-form").classList.remove('was-validated')
+				document.getElementById("contact-form").reset();
+        	}	
+			
+		};
+		httpRequest.open('POST', theUrl);
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		httpRequest.send(params);
+
+		
+	}
+
+	function tiraHifen(telefone) {
+		const textoAtual = telefone.value;
+		var textoAjustado = textoAtual.replace(/\-/g, '');
+		var textoAjustado = textoAjustado.replace(/\(/g, '');
+		var textoAjustado = textoAjustado.replace(/\)/g, '');
+		var textoAjustado = textoAjustado.replace(/[a-zA-Z]/g, '');		
+		textoAjustado = textoAjustado.replace(/\s/g, '');
+
+		telefone.value = textoAjustado;
+	}
+
+
+	function mascaraDeTelefone(telefone){
+		const textoAtual = telefone.value;	
+		var textoAjustado = textoAtual;
+		document.getElementById("in-tel").style.display = 'none';
+		
+			if(textoAtual.length === 11) {
+				const part0 = textoAtual.slice(0,2)
+				const parte1 = textoAtual.slice(2,7);
+        		const parte2 = textoAtual.slice(7,11);
+        		textoAjustado = `(${part0}) ${parte1}-${parte2}`;
+				var crr = true;     
+			} 
+			
+			if (textoAtual.length === 10){
+				const part0 = textoAtual.slice(0,2)
+				const parte1 = textoAtual.slice(2,6);
+        		const parte2 = textoAtual.slice(6,10);
+        		textoAjustado = `(${part0}) ${parte1}-${parte2}`;
+				var crr= true;
+			}
+
+			if(!crr){
+				document.getElementById("in-tel").style.display = 'block';
+			}
+
+			
+			
+		telefone.value = textoAjustado;
+	}
+
+	</script>
+	
 </body>
 
 </html>
