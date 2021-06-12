@@ -28,15 +28,15 @@ require("./assets/Mailer/SMTP.php");
  $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
  $mail->SMTPAuth = true; // authentication enabled
  $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
- $mail->Host = "mail.jeffersonsantana.com.br";
+ $mail->Host = "";
  $mail->Port = 465; // or 587
  $mail->IsHTML(true);
- $mail->Username = "contato@jeffersonsantana.com.br";
- $mail->Password = "admin123@";
- $mail->SetFrom("contato@jeffersonsantana.com.br");
+ $mail->Username = "";
+ $mail->Password = "";
+ $mail->SetFrom("");
  $mail->Subject = "Contato atrvés do site - " .$assunto." - ".$nome  ;
  $mail->Body = $body ;
- $mail->AddAddress("santana.jeff@gmail.com");
+ $mail->AddAddress("");
     if(!$mail->Send()) {
        echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
