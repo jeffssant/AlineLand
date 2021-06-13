@@ -155,7 +155,7 @@
 						<li> 25 fotos impressas no tamanho 13x18cm </li>
 						<li> Link para download das fotos digitais. (As 25 selecionadas). </li>
 					</ul>
-					<p><a class="btn btn-secondary" href="#">Pacote Recordação</a></p>
+					<p><a class="btn btn-secondary" href="#contato" id="recordacao">Pacote Recordação</a></p>
 				</div>
 
 
@@ -169,7 +169,7 @@
 						<li> 25 fotos impressas no tamanho 13x18cm </li>
 						<li> Link para download das fotos digitais. (As 25 selecionadas). </li>
 					</ul>
-					<p><a class="btn btn-secondary" href="#">Pacote mimo</a></p>
+					<p><a class="btn btn-secondary" href="#contato" id="mimo">Pacote mimo</a></p>
 				</div>
 
 				<div class="col-lg-4 px-4">
@@ -182,7 +182,7 @@
 						<li> 25 fotos impressas no tamanho 13x18cm </li>
 						<li> Link para download das fotos digitais. (As 25 selecionadas). </li>
 					</ul>
-					<p><a class="btn btn-secondary" href="#">Pacote memorial</a></p>
+					<p><a class="btn btn-secondary" href="#contato" id="memorial">Pacote memorial</a></p>
 				</div>
 
 			</div><!-- /.row -->
@@ -419,7 +419,7 @@
 		   </div>
 		 </div>
 	   </div>
-	   
+	   <a href="#" class="back-to-top"></a>
 	   
 		<!-- FOOTER -->
 		<footer class="container footer mt-4">
@@ -554,7 +554,22 @@
 			
 		telefone.value = textoAjustado;
 	}
+	var clickMe = document.getElementById("memorial");
+	clickMe.addEventListener('click', function (event) {
+		document.getElementById('assunto').getElementsByTagName('option')[2].selected = 'selected'
+	});
 
+
+	var clickMeM = document.getElementById("mimo");
+	clickMeM.addEventListener('click', function (event) {
+		document.getElementById('assunto').getElementsByTagName('option')[3].selected = 'selected'
+	});
+
+
+	var clickMeR = document.getElementById("recordacao");
+	clickMeR.addEventListener('click', function (event) {
+		document.getElementById('assunto').getElementsByTagName('option')[1].selected = 'selected'
+	});
 	</script>
 	
 </body>
