@@ -28,7 +28,7 @@ require("./assets/Mailer/SMTP.php");
  $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
  $mail->SMTPAuth = true; // authentication enabled
  $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
- $mail->Host = "";
+ $mail->Host = " ";
  $mail->Port = 465; // or 587
  $mail->IsHTML(true);
  $mail->Username = "";

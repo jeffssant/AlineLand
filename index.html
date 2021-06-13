@@ -43,7 +43,7 @@
 <body>
 
 
-	<div class="container-fluid">
+	<div class="container-fluid" id="home">
 		<header class="row">
 			<div class="col-lg-12 col-9 text-lg-center">
 				<a class="blog-header-logo text-dark align-self-end px-5 " href="#">
@@ -58,12 +58,11 @@
 			</nav>
 
 			<div class="collapse navbar-collapse d-lg-block " id="navbarTogglerDemo01">
-				<ul class="nav col-md-12 mb-2 justify-content-center ">
-					<li class="align-text-bottom d-flex "><a href="#" class="nav-link  link-secondary align-self-end">Home</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">Pacotes</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">Depoimentos</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">Sobre mim</a></li>
-					<li class="d-flex"><a href="#" class="nav-link align-self-end">Contato</a></li>
+				<ul class="nav col-md-12 mb-2 justify-content-center ">					
+					<li class="d-flex"><a href="#pacotes" class="nav-link align-self-end">Pacotes</a></li>
+					<li class="d-flex"><a href="#depoimentos" class="nav-link align-self-end">Depoimentos</a></li>
+					<li class="d-flex"><a href="#sobre" class="nav-link align-self-end">Sobre mim</a></li>
+					<li class="d-flex"><a href="#contato" class="nav-link align-self-end">Contato</a></li>
 					<li class="d-flex"><a href="#" class="nav-link align-self-end">Galeria</a></li>
 				</ul>
 			</div>
@@ -133,7 +132,7 @@
 
 
 		<!-- Open Pacotes -->
-		<div class="container marketing my-5">
+		<div class="container marketing my-5" id="pacotes">
 
 			<!-- Three columns of text below the carousel -->
 			<h2 class="text-center dancing-font">Conheça os pacotes de ensaios:</h2>
@@ -186,7 +185,7 @@
 
 		</div>
 		<!-- Open depoimentos -->
-		<h2 class="text-center dancing-font">O que os formandos dizem:</h2>
+		<h2 class="text-center dancing-font" id="depoimentos">O que os formandos dizem:</h2>
 		<div class="container-fluid marketing color my-5 px-0">
 			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner">
@@ -242,7 +241,7 @@
 		<!-- Close Depoimentos -->
 		<!-- Open Bio-->
 
-		<div class="container">
+		<div class="container" id="sobre">
 			<div class="row featurette">
 
 				<div class="col-md-7">
@@ -275,7 +274,7 @@
 
 
 		<!-- Contact -->
-		<div class="contact mt-5 py-5">
+		<div class="contact mt-5 py-5" id="contato">
 			<h2 class="text-center">Faça seu orçamento</h2>
 			<p class="text-center">Para dúvidas, sugestões ou mais informações me envie uma mensagem!</p>
 			<div class="container">
@@ -443,8 +442,17 @@
 	Array.from(forms)
 	  .forEach(function (form) {
 		form.addEventListener('submit', function (event) {
-			
-			document.getElementById("btn-env").disabled = true;
+
+			event.preventDefault();
+
+			if (!form.checkValidity()) {
+				event.preventDefault()
+				event.stopPropagation()			
+			}
+
+			var button = document.getElementById("btn-env");
+			button.disabled = true;
+			button.value = 'Aguarde...';
 
 			var nome = document.getElementById("form_name").value;
 			var telefone = document.getElementById("form_wpp").value;
@@ -454,16 +462,6 @@
 			var instituicao = document.getElementById("instituicao").value;
 			var assunto = document.getElementById("assunto").value;
 			var mensagem = document.getElementById("form_message").value;
-
-			
-			
-			
-			event.preventDefault();
-		
-			if (!form.checkValidity()) {
-				event.preventDefault()
-				event.stopPropagation()			
-			}
 
 			form.classList.add('was-validated');
 			
@@ -475,9 +473,8 @@
 					'&estado=' + estado +
 					'&instituicao=' + instituicao +
 					'&assunto=' + assunto +
-					'&mensagem=' + mensagem)	
-
-			documento.getElementById("btn-env") = false;
+					'&mensagem=' + mensagem);			
+			
 
 		}, false)
 	  })
@@ -491,9 +488,14 @@
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function () {
 			if(httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200 && httpRequest.responseText == "Mensagem enviada com sucesso!") {
-            	alert(httpRequest.responseText);
+            	
+				alert(httpRequest.responseText);
 				document.getElementById("contact-form").classList.remove('was-validated')
 				document.getElementById("contact-form").reset();
+
+				var button = document.getElementById("btn-env");
+				button.disabled = false;
+				button.value = 'Enviar';
         	}	
 			
 		};
