@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title>Aline Araujo - Registrando Momentos</title>
+	<meta name="description" content="Capitando momentos para preservar memorias.">
+	<link rel="canonical" href="https://alinearaujofotos.com.br/">
+	<meta property="og:locale" content="pt_BR">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Aline Araujo - Registrando Momentos">
+	<meta property="og:description" content="Capitando momentos para preservar memorias.">
+	<meta property="og:url" content="https://alinearaujofotos.com.br/">
+	<meta property="og:site_name" content="Aline Araujo">
+	<meta property="article:publisher" content="https://www.facebook.com/alinearaujo.lima">	
+	<meta property="og:image" content="https://alinearaujofotos.com.br/assets/img/aline.jpg">
+
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+	<link rel="shortcut icon" type="image/x-icon" href="./assets/img/fav.ico">
+
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+
+	<!-- Custom styles for this template -->
+	<link href="./assets/dist/css/carousel.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+	<div class="container-fluid" id="home">
+		<header class="row">
+			<div class="col-lg-12 col-9 text-lg-center">
+				<a class="blog-header-logo text-dark align-self-end px-5 " href="index.html">
+					<img src="assets/img/logo.png" alt="" class="img-fluid my-3">
+				</a>
+			</div>
+
+			<nav class="navbar navbar-expand-lg navbar-light col-lg-12 col-3 px-4">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
+
+			<div class="collapse navbar-collapse d-lg-block " id="navbarTogglerDemo01">
+				<ul class="nav col-md-12 mb-2 justify-content-center ">	
+                    <li class="d-flex"><a href="index.html" class="nav-link align-self-end">Home</a></li>				
+					<li class="d-flex"><a href="#pacotes" class="nav-link align-self-end">Pacotes</a></li>
+					<li class="d-flex"><a href="#depoimentos" class="nav-link align-self-end">Depoimentos</a></li>
+					<li class="d-flex"><a href="#sobre" class="nav-link align-self-end">Sobre mim</a></li>
+					<li class="d-flex"><a href="#contato" class="nav-link align-self-end">Contato</a></li>					
+				</ul>
+			</div>
+		</header>
+	</div>
+	
+	<main>
+
+		
+
+		
+		<section class="gallery min-vh-100">
+			<div class="container-lg">
+			   <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+				  <div class="col">
+					 <img src="./assets/img/1.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/2.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/3.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/4.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/5.jpg" class="gallery-item" alt="gallery">
+				  </div>
+				  <div class="col">
+					 <img src="./assets/img/6.jpg" class="gallery-item" alt="gallery">
+				  </div>
+			   </div>
+			</div>
+		 </section>
+	   
+	   <!-- Modal -->
+	   <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		 <div class="modal-dialog modal-dialog-centered modal-lg">
+		   <div class="modal-content">
+			 <div class="modal-header">			   
+			   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			 </div>
+			 <div class="modal-body">
+				<img src="img/1.jpg" class="modal-img" alt="modal img">
+			 </div>
+		   </div>
+		 </div>
+	   </div>
+	   
+	   
+		<!-- FOOTER -->
+		<footer class="container footer mt-4">
+
+			<h3>Fotos lindas de momentos especiais.</h2>
+				<p>&copy; 2021 Todos os direitos reservados <br> São Paulo / SP</p>
+		</footer>
+	</main>
+	<script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		document.addEventListener("click",function (e){
+		if(e.target.classList.contains("gallery-item")){
+			const src = e.target.getAttribute("src");
+			document.querySelector(".modal-img").src = src;
+			const myModal = new bootstrap.Modal(document.getElementById('gallery-modal'));
+			myModal.show();
+		}
+		})
+
+	
+	</script>
+
+<script>
+	(function () {
+	const forms = document.querySelectorAll('.needs-validation')
+	Array.from(forms)
+	  .forEach(function (form) {
+		form.addEventListener('submit', function (event) {
+
+			event.preventDefault();
+
+			if (!form.checkValidity()) {
+				event.preventDefault()
+				event.stopPropagation()			
+			}
+
+			var button = document.getElementById("btn-env");
+			button.disabled = true;
+			button.value = 'Aguarde...';
+
+			var nome = document.getElementById("form_name").value;
+			var telefone = document.getElementById("form_wpp").value;
+			var email = document.getElementById("form_email").value;
+			var data = document.getElementById("data").value;
+			var estado = document.getElementById("estado").value;
+			var instituicao = document.getElementById("instituicao").value;
+			var assunto = document.getElementById("assunto").value;
+			var mensagem = document.getElementById("form_message").value;
+
+			form.classList.add('was-validated');
+			
+
+			callPHP('nome='+ nome +
+					'&telefone=' + telefone +
+					'&email=' + email +
+					'&data=' + data +
+					'&estado=' + estado +
+					'&instituicao=' + instituicao +
+					'&assunto=' + assunto +
+					'&mensagem=' + mensagem);			
+			
+
+		}, false)
+	  })
+	})()
+	</script>
+
+<script>
+	
+	function callPHP(params) {
+		var theUrl = 'get_data.php';
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function () {
+			if(httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200 && httpRequest.responseText == "Mensagem enviada com sucesso!") {
+            	
+				alert(httpRequest.responseText);
+				document.getElementById("contact-form").classList.remove('was-validated')
+				document.getElementById("contact-form").reset();
+
+				var button = document.getElementById("btn-env");
+				button.disabled = false;
+				button.value = 'Enviar';
+        	}	
+			
+		};
+		httpRequest.open('POST', theUrl);
+		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		httpRequest.send(params);
+
+		
+	}
+
+	function tiraHifen(telefone) {
+		const textoAtual = telefone.value;
+		var textoAjustado = textoAtual.replace(/\-/g, '');
+		var textoAjustado = textoAjustado.replace(/\(/g, '');
+		var textoAjustado = textoAjustado.replace(/\)/g, '');
+		var textoAjustado = textoAjustado.replace(/[a-zA-Z]/g, '');		
+		textoAjustado = textoAjustado.replace(/\s/g, '');
+
+		telefone.value = textoAjustado;
+	}
+
+
+	function mascaraDeTelefone(telefone){
+		const textoAtual = telefone.value;	
+		var textoAjustado = textoAtual;
+		document.getElementById("in-tel").style.display = 'none';
+		
+			if(textoAtual.length === 11) {
+				const part0 = textoAtual.slice(0,2)
+				const parte1 = textoAtual.slice(2,7);
+        		const parte2 = textoAtual.slice(7,11);
+        		textoAjustado = `(${part0}) ${parte1}-${parte2}`;
+				var crr = true;     
+			} 
+			
+			if (textoAtual.length === 10){
+				const part0 = textoAtual.slice(0,2)
+				const parte1 = textoAtual.slice(2,6);
+        		const parte2 = textoAtual.slice(6,10);
+        		textoAjustado = `(${part0}) ${parte1}-${parte2}`;
+				var crr= true;
+			}
+
+			if(!crr){
+				document.getElementById("in-tel").style.display = 'block';
+			}
+
+			
+			
+		telefone.value = textoAjustado;
+	}
+
+	</script>
+	
+</body>
+
+</html>
