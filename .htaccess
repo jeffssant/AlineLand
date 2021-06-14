@@ -1,0 +1,58 @@
+
+# BEGIN WordPress
+# As directivas (linhas) entre `BEGIN WordPress` e `END WordPress` são geradas
+# dinamicamente e não deverão ser modificadas através de filtros do WordPress.
+# Qualquer alteração às directivas entre estes marcadores será sobreposta.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN WP-HUMMINGBIRD-CACHING
+# As directivas (linhas) entre `BEGIN WP-HUMMINGBIRD-CACHING` e `END WP-HUMMINGBIRD-CACHING` são geradas
+# dinamicamente e não deverão ser modificadas através de filtros do WordPress.
+# Qualquer alteração às directivas entre estes marcadores será sobreposta.
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A0
+
+<FilesMatch "\.(txt|xml|js)$">
+ExpiresDefault A31536000
+</FilesMatch>
+
+<FilesMatch "\.(css)$">
+ExpiresDefault A31536000
+</FilesMatch>
+
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$">
+ExpiresDefault A31536000
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+ExpiresDefault A31536000
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(txt|xml|js)$">
+   Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
+
+  <FilesMatch "\.(css)$">
+   Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
+
+  <FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac|eot|ttf|otf|woff|svg)$">
+   Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
+
+  <FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+   Header set Cache-Control "max-age=31536000"
+  </FilesMatch>
+</IfModule>
+# END WP-HUMMINGBIRD-CACHING
