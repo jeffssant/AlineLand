@@ -243,3 +243,13 @@ header .nav-link{
 .back-to-top:hover{
   color: white;
 }
+
+ul.pacotes {
+  min-height: 170px;
+}
+
+.navbar {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
